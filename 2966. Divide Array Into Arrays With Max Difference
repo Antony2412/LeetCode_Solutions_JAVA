@@ -1,0 +1,14 @@
+class Solution {
+    public int[][] divideArray(int[] nums, int k) {
+        int l=nums.length;
+        if(l%3!=0) return new int [0][0];
+        int ans[][]=new int [l/3][3];
+        Arrays.sort(nums);
+        for(int i=0;i<l;i++)
+        {
+            ans[i/3][i%3]=nums[i];
+            if(i%3>0 && nums[i]-nums[i-i%3]>k) return new int [0][0];
+        }
+        return ans;
+    }
+}
